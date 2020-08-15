@@ -1,0 +1,34 @@
+C:\Users\apolo\Documents\GitHub\prueba\ListaDNI\obj\Debug\ListaDNI.csprojAssemblyReference.cache
+C:\Users\apolo\Documents\GitHub\prueba\ListaDNI\obj\Debug\ListaDNI.Form1.resources
+C:\Users\apolo\Documents\GitHub\prueba\ListaDNI\obj\Debug\ListaDNI.Properties.Resources.resources
+C:\Users\apolo\Documents\GitHub\prueba\ListaDNI\obj\Debug\ListaDNI.csproj.GenerateResource.cache
+C:\Users\apolo\Documents\GitHub\prueba\ListaDNI\obj\Debug\ListaDNI.csproj.CoreCompileInputs.cache
+C:\Users\apolo\Documents\GitHub\prueba\ListaDNI\bin\Debug\ListaDNI.exe.config
+C:\Users\apolo\Documents\GitHub\prueba\ListaDNI\bin\Debug\ListaDNI.exe
+C:\Users\apolo\Documents\GitHub\prueba\ListaDNI\bin\Debug\ListaDNI.pdb
+C:\Users\apolo\Documents\GitHub\prueba\ListaDNI\obj\Debug\ListaDNI.exe
+C:\Users\apolo\Documents\GitHub\prueba\ListaDNI\obj\Debug\ListaDNI.pdb
+C:\Users\apolo\Downloads\prueba-master\ListaDNI\bin\Debug\ListaDNI.exe.config
+C:\Users\apolo\Downloads\prueba-master\ListaDNI\bin\Debug\ListaDNI.exe
+C:\Users\apolo\Downloads\prueba-master\ListaDNI\bin\Debug\ListaDNI.pdb
+C:\Users\apolo\Downloads\prueba-master\ListaDNI\obj\Debug\ListaDNI.csprojAssemblyReference.cache
+C:\Users\apolo\Downloads\prueba-master\ListaDNI\obj\Debug\ListaDNI.Properties.Resources.resources
+C:\Users\apolo\Downloads\prueba-master\ListaDNI\obj\Debug\ListaDNI.csproj.GenerateResource.cache
+C:\Users\apolo\Downloads\prueba-master\ListaDNI\obj\Debug\ListaDNI.csproj.CoreCompileInputs.cache
+C:\Users\apolo\Downloads\prueba-master\ListaDNI\obj\Debug\ListaDNI.exe
+C:\Users\apolo\Downloads\prueba-master\ListaDNI\obj\Debug\ListaDNI.pdb
+C:\Users\apolo\Downloads\prueba-master\ListaDNI\obj\Debug\ListaDNI.formControl.resources
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\bin\Debug\ListaDNI.exe.config
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\bin\Debug\ListaDNI.exe
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\bin\Debug\ListaDNI.pdb
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\obj\Debug\ListaDNI.csprojAssemblyReference.cache
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\obj\Debug\ListaDNI.formControl.resources
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\obj\Debug\ListaDNI.Properties.Resources.resources
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\obj\Debug\ListaDNI.csproj.GenerateResource.cache
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\obj\Debug\ListaDNI.csproj.CoreCompileInputs.cache
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\obj\Debug\ListaDNI.exe
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\obj\Debug\ListaDNI.pdb
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\bin\Debug\ListaDNI.exe.manifest
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\bin\Debug\ListaDNI.application
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\obj\Debug\ListaDNI.exe.manifest
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\obj\Debug\ListaDNI.application
