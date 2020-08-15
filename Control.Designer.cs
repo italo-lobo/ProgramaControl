@@ -40,6 +40,8 @@
             this.btnDupli = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblNoApl = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
             this.lblDuplCont = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblDesisCont = new System.Windows.Forms.Label();
@@ -77,17 +79,22 @@
             this.rbx2 = new System.Windows.Forms.RadioButton();
             this.rbx3 = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btHabilitar = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.rbtTurnoT = new System.Windows.Forms.RadioButton();
+            this.rbtTurnoM = new System.Windows.Forms.RadioButton();
+            this.btnExpor = new System.Windows.Forms.Button();
             this.rbtnTextBBOO = new System.Windows.Forms.RadioButton();
             this.cbNomBBOO = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lblNoApl = new System.Windows.Forms.Label();
-            this.lbl = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblHoraReloj = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnValidado
@@ -113,6 +120,7 @@
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(136, 20);
             this.txtDNI.TabIndex = 2;
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
             // label2
             // 
@@ -233,6 +241,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(110, 180);
             this.panel1.TabIndex = 11;
+            // 
+            // lblNoApl
+            // 
+            this.lblNoApl.AutoSize = true;
+            this.lblNoApl.Location = new System.Drawing.Point(77, 140);
+            this.lblNoApl.Name = "lblNoApl";
+            this.lblNoApl.Size = new System.Drawing.Size(15, 13);
+            this.lblNoApl.TabIndex = 19;
+            this.lblNoApl.Text = "N";
+            // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.Location = new System.Drawing.Point(18, 140);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(41, 13);
+            this.lbl.TabIndex = 18;
+            this.lbl.Text = "NO Apl";
             // 
             // lblDuplCont
             // 
@@ -466,14 +492,15 @@
             // 
             // txtLM
             // 
-            this.txtLM.Location = new System.Drawing.Point(3, 51);
+            this.txtLM.Location = new System.Drawing.Point(34, 36);
             this.txtLM.Name = "txtLM";
             this.txtLM.Size = new System.Drawing.Size(100, 20);
             this.txtLM.TabIndex = 29;
+            this.txtLM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLM_KeyPress);
             // 
             // txtLPL
             // 
-            this.txtLPL.Location = new System.Drawing.Point(239, 51);
+            this.txtLPL.Location = new System.Drawing.Point(293, 36);
             this.txtLPL.Name = "txtLPL";
             this.txtLPL.Size = new System.Drawing.Size(100, 20);
             this.txtLPL.TabIndex = 31;
@@ -481,9 +508,10 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label12.Location = new System.Drawing.Point(42, 36);
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(6, 39);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(27, 15);
             this.label12.TabIndex = 32;
@@ -492,9 +520,10 @@
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label14.Location = new System.Drawing.Point(282, 36);
+            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label14.Location = new System.Drawing.Point(260, 39);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(32, 15);
             this.label14.TabIndex = 34;
@@ -502,6 +531,8 @@
             // 
             // btnCalcular
             // 
+            this.btnCalcular.FlatAppearance.BorderSize = 4;
+            this.btnCalcular.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.btnCalcular.Location = new System.Drawing.Point(110, 5);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(75, 23);
@@ -513,9 +544,10 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label13.Location = new System.Drawing.Point(162, 36);
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.Location = new System.Drawing.Point(135, 39);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(23, 15);
             this.label13.TabIndex = 39;
@@ -524,7 +556,7 @@
             // txtLZ
             // 
             this.txtLZ.Enabled = false;
-            this.txtLZ.Location = new System.Drawing.Point(121, 51);
+            this.txtLZ.Location = new System.Drawing.Point(159, 36);
             this.txtLZ.Name = "txtLZ";
             this.txtLZ.Size = new System.Drawing.Size(100, 20);
             this.txtLZ.TabIndex = 38;
@@ -541,6 +573,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.Controls.Add(this.btnCalcular);
             this.panel2.Controls.Add(this.btnExportar);
             this.panel2.Controls.Add(this.txtLM);
@@ -551,7 +584,7 @@
             this.panel2.Controls.Add(this.label14);
             this.panel2.Location = new System.Drawing.Point(2, 121);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(348, 82);
+            this.panel2.Size = new System.Drawing.Size(394, 71);
             this.panel2.TabIndex = 41;
             // 
             // cbEstados
@@ -573,7 +606,7 @@
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(146, 64);
+            this.btnGenerar.Location = new System.Drawing.Point(5, 61);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(75, 23);
             this.btnGenerar.TabIndex = 44;
@@ -584,7 +617,7 @@
             // rbx2
             // 
             this.rbx2.AutoSize = true;
-            this.rbx2.Location = new System.Drawing.Point(6, 9);
+            this.rbx2.Location = new System.Drawing.Point(13, 10);
             this.rbx2.Name = "rbx2";
             this.rbx2.Size = new System.Drawing.Size(36, 17);
             this.rbx2.TabIndex = 45;
@@ -596,7 +629,7 @@
             // rbx3
             // 
             this.rbx3.AutoSize = true;
-            this.rbx3.Location = new System.Drawing.Point(6, 32);
+            this.rbx3.Location = new System.Drawing.Point(13, 32);
             this.rbx3.Name = "rbx3";
             this.rbx3.Size = new System.Drawing.Size(36, 17);
             this.rbx3.TabIndex = 46;
@@ -608,15 +641,79 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Gray;
-            this.panel3.Controls.Add(this.groupBox1);
+            this.panel3.Controls.Add(this.btHabilitar);
+            this.panel3.Controls.Add(this.panel6);
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.btnExpor);
             this.panel3.Controls.Add(this.rbtnTextBBOO);
             this.panel3.Controls.Add(this.cbNomBBOO);
             this.panel3.Controls.Add(this.btnGenerar);
             this.panel3.Controls.Add(this.cbEstados);
             this.panel3.Location = new System.Drawing.Point(2, 209);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(236, 87);
+            this.panel3.Size = new System.Drawing.Size(339, 87);
             this.panel3.TabIndex = 47;
+            // 
+            // btHabilitar
+            // 
+            this.btHabilitar.Location = new System.Drawing.Point(318, 71);
+            this.btHabilitar.Name = "btHabilitar";
+            this.btHabilitar.Size = new System.Drawing.Size(18, 13);
+            this.btHabilitar.TabIndex = 49;
+            this.btHabilitar.UseVisualStyleBackColor = true;
+            this.btHabilitar.Click += new System.EventHandler(this.btHabilitar_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.rbx3);
+            this.panel6.Controls.Add(this.rbx2);
+            this.panel6.Location = new System.Drawing.Point(172, 10);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(64, 63);
+            this.panel6.TabIndex = 55;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.rbtTurnoT);
+            this.panel5.Controls.Add(this.rbtTurnoM);
+            this.panel5.Location = new System.Drawing.Point(238, 10);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(87, 63);
+            this.panel5.TabIndex = 54;
+            // 
+            // rbtTurnoT
+            // 
+            this.rbtTurnoT.AutoSize = true;
+            this.rbtTurnoT.Location = new System.Drawing.Point(3, 35);
+            this.rbtTurnoT.Name = "rbtTurnoT";
+            this.rbtTurnoT.Size = new System.Drawing.Size(63, 17);
+            this.rbtTurnoT.TabIndex = 53;
+            this.rbtTurnoT.Text = "T Tarde";
+            this.rbtTurnoT.UseVisualStyleBackColor = true;
+            this.rbtTurnoT.Visible = false;
+            // 
+            // rbtTurnoM
+            // 
+            this.rbtTurnoM.AutoSize = true;
+            this.rbtTurnoM.Checked = true;
+            this.rbtTurnoM.Location = new System.Drawing.Point(3, 10);
+            this.rbtTurnoM.Name = "rbtTurnoM";
+            this.rbtTurnoM.Size = new System.Drawing.Size(74, 17);
+            this.rbtTurnoM.TabIndex = 52;
+            this.rbtTurnoM.TabStop = true;
+            this.rbtTurnoM.Text = "T Mañana";
+            this.rbtTurnoM.UseVisualStyleBackColor = true;
+            this.rbtTurnoM.Visible = false;
+            // 
+            // btnExpor
+            // 
+            this.btnExpor.Location = new System.Drawing.Point(84, 61);
+            this.btnExpor.Name = "btnExpor";
+            this.btnExpor.Size = new System.Drawing.Size(75, 23);
+            this.btnExpor.TabIndex = 51;
+            this.btnExpor.Text = "EXPORTAR";
+            this.btnExpor.UseVisualStyleBackColor = true;
+            this.btnExpor.Click += new System.EventHandler(this.btnExpor_Click);
             // 
             // rbtnTextBBOO
             // 
@@ -625,7 +722,6 @@
             this.rbtnTextBBOO.Name = "rbtnTextBBOO";
             this.rbtnTextBBOO.Size = new System.Drawing.Size(14, 13);
             this.rbtnTextBBOO.TabIndex = 48;
-            this.rbtnTextBBOO.TabStop = true;
             this.rbtnTextBBOO.UseVisualStyleBackColor = true;
             // 
             // cbNomBBOO
@@ -634,10 +730,11 @@
             this.cbNomBBOO.Items.AddRange(new object[] {
             "Matias",
             "Geo"});
-            this.cbNomBBOO.Location = new System.Drawing.Point(5, 38);
+            this.cbNomBBOO.Location = new System.Drawing.Point(7, 38);
             this.cbNomBBOO.Name = "cbNomBBOO";
             this.cbNomBBOO.Size = new System.Drawing.Size(121, 21);
             this.cbNomBBOO.TabIndex = 47;
+            this.cbNomBBOO.Text = "BBOO";
             // 
             // panel4
             // 
@@ -656,35 +753,16 @@
             this.panel4.Size = new System.Drawing.Size(394, 108);
             this.panel4.TabIndex = 48;
             // 
-            // lblNoApl
+            // lblHoraReloj
             // 
-            this.lblNoApl.AutoSize = true;
-            this.lblNoApl.Location = new System.Drawing.Point(77, 140);
-            this.lblNoApl.Name = "lblNoApl";
-            this.lblNoApl.Size = new System.Drawing.Size(15, 13);
-            this.lblNoApl.TabIndex = 19;
-            this.lblNoApl.Text = "N";
-            // 
-            // lbl
-            // 
-            this.lbl.AutoSize = true;
-            this.lbl.Location = new System.Drawing.Point(18, 140);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(41, 13);
-            this.lbl.TabIndex = 18;
-            this.lbl.Text = "NO Apl";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.groupBox1.Controls.Add(this.rbx2);
-            this.groupBox1.Controls.Add(this.rbx3);
-            this.groupBox1.Location = new System.Drawing.Point(165, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(48, 59);
-            this.groupBox1.TabIndex = 50;
-            this.groupBox1.TabStop = false;
+            this.lblHoraReloj.AutoSize = true;
+            this.lblHoraReloj.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoraReloj.ForeColor = System.Drawing.Color.White;
+            this.lblHoraReloj.Location = new System.Drawing.Point(4, 195);
+            this.lblHoraReloj.Name = "lblHoraReloj";
+            this.lblHoraReloj.Size = new System.Drawing.Size(56, 17);
+            this.lblHoraReloj.TabIndex = 49;
+            this.lblHoraReloj.Text = "label15";
             // 
             // formControl
             // 
@@ -693,6 +771,7 @@
             this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(530, 693);
+            this.Controls.Add(this.lblHoraReloj);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -721,10 +800,12 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -785,7 +866,13 @@
         private System.Windows.Forms.RadioButton rbtnTextBBOO;
         private System.Windows.Forms.Label lblNoApl;
         private System.Windows.Forms.Label lbl;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnExpor;
+        private System.Windows.Forms.RadioButton rbtTurnoT;
+        private System.Windows.Forms.RadioButton rbtTurnoM;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button btHabilitar;
+        private System.Windows.Forms.Label lblHoraReloj;
     }
 }
 

@@ -15,7 +15,9 @@ namespace ListaDNI
 
 
     public partial class formControl : Form
-    {
+    {//instanciacion de la clase validacion de solo numeros 
+        ValidarNumeros vn = new ValidarNumeros();
+
         List<int> validados = new List<int>();
         List<int> siEnRevision = new List<int>();
         List<int> contestador = new List<int>();
@@ -28,12 +30,12 @@ namespace ListaDNI
         int contadorDuplicado = 1;
         int contadorNoAplica = 1;
         String llamadaText = "";
-
-
+        DateTime fechaHora;
+        string text = "";
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            lblHoraReloj.Text = "";
         }
 
         public formControl()
@@ -56,17 +58,17 @@ namespace ListaDNI
         private void btnValidado_Click(object sender, EventArgs e)
         {
 
-            if (txtDNI.Text=="")
+            if (txtDNI.Text == "")
             {
                 MensajeErrorDNI();
             }
             else
             {
                 listValidados.Items.Add(txtDNI.Text);
-                lblValdCont.Text = Convert.ToString(contadorValidados++);
+                lblValdCont.Text = Convert.ToString(contadorValidados=contadorValidados+1);
                 LimpiarDNI();
             }
-          
+
         }
 
         private void btnContestador_Click(object sender, EventArgs e)
@@ -78,12 +80,9 @@ namespace ListaDNI
             else
             {
                 lstConts.Items.Add(txtDNI.Text);
-                lblContsCont.Text = Convert.ToString(contadorContestador++); 
+                lblContsCont.Text = Convert.ToString(contadorContestador++);
                 LimpiarDNI();
-                
             }
-
-
         }
 
         private void btnRevision_Click(object sender, EventArgs e)
@@ -160,19 +159,17 @@ namespace ListaDNI
         {
 
             if (listValidados.SelectedIndex != -1)
-            {
+            {//este contador funciona bien. 
                 int indice = listValidados.SelectedIndex;
                 listValidados.Items.RemoveAt(indice);
-               lblValdCont.Text = (contadorValidados++).ToString();
+                lblValdCont.Text = (contadorValidados=contadorValidados-1).ToString();
             }
             if (lstConts.SelectedIndex != -1)
-            {
+            {//no entiendo prque no funciona bien cuando pongo contadorContestador-- 
                 int indice = lstConts.SelectedIndex;
                 lstConts.Items.RemoveAt(indice);
+                lblValdCont.Text = (contadorContestador--).ToString();
             }
-
-            //DODO ERROR: AGREGAR CODIGO PARA QUE ME RESTE DEL CONTADOR CUANDO ELIMINO 
-
         }
         private void btnModf_Click(object sender, EventArgs e)
         {
@@ -199,33 +196,28 @@ namespace ListaDNI
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            //Codigo que funciona. (SIMPLIFICAR)  
-            //string lmensualString = "";
-            //lmensualString = txtLM.Text;
-            //int tamañoLM= lmensualString.Length -5;
-            //lblTamañoLM.Text = tamañoLM.ToString();
-            //lblLimiteMensual.Text = lmensualString.Substring(0,tamañoLM);
 
 
 
-            //Recordar eliminar lblLimiteMensual(esto va a quedar en Clipboar)
-            //INGRESAR ESTE CODIGO EN UN METODO 
+            if (txtLM.Text == "" && txtLPL.Text == "")
+            {
+                MessageBox.Show("Antes debe ingresar el importe");
+            }
+            else
+            if (txtLM.Text.Length >= 6 && txtLPL.Text.Length >= 6)
+            {
+                int tamañoLM = txtLM.Text.Length - 5;
+                int tamañoLPL = txtLPL.Text.Length - 5;
+                txtLPL.Text = txtLPL.Text.Substring(0, tamañoLPL);
+                txtLM.Text = txtLM.Text.Substring(0, tamañoLM);
+                txtLZ.Text = Convert.ToString(Convert.ToInt32(txtLM.Text) * 3);
+            }
+            else
+            {
+                MessageBox.Show("Recuerde que debe contener mas de 5 caracteres para poder ser convertidos");
+                txtLM.Focus();
+            }
 
-            //int tamañoLM = txtLM.Text.Length - 5;
-            //lblLimiteMensual.Text = txtLM.Text.Substring(0, tamañoLM);
-            //int calculoLZ = Convert.ToInt32(lblLimiteMensual.Text) *3;
-            //lblLz.Text = calculoLZ.ToString();
-
-
-            //***************************************************
-            //tercer intento mas simplificado         
-            int tamañoLM = txtLM.Text.Length - 5;
-            int tamañoLPL = txtLPL.Text.Length - 5;
-            txtLPL.Text = txtLPL.Text.Substring(0, tamañoLPL);
-            txtLM.Text = txtLM.Text.Substring(0, tamañoLM);
-            txtLZ.Text = Convert.ToString(Convert.ToInt32(txtLM.Text) * 3);
-            //copiado al portapeles 
-            // Clipboard.SetText("LM:$"+txtLM.Text+" LZ:$"+txtLZ.Text+" LPL:$"+txtLPL.Text);
 
 
 
@@ -248,9 +240,14 @@ namespace ListaDNI
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            DateTime fechaHora = DateTime.Now;
-            string text = "";
+            fechaHora = DateTime.Now;
+            lblHoraReloj.Text = fechaHora.ToString();
+            btnGenerar.Enabled = false;
+        }
 
+
+        private void btnExpor_Click(object sender, EventArgs e)
+        {
             //esta parte del codigo me agrega encabezado siempre que el boton se encuentre selecccionado 
 
             if (rbtnTextBBOO.Checked == true)
@@ -261,6 +258,25 @@ namespace ListaDNI
             {
                 text = "";
             }
+            string TurnoCartero()
+            {
+                string turno = "";
+                if (rbtTurnoM.Checked)
+                {
+                    turno = "Mañana";
+
+                }
+                else
+
+                    if (rbtTurnoT.Checked)
+                { turno = "Tarde"; }
+                else
+                {
+                    turno = "";
+                }
+                return turno;
+            }
+
             string chekbox()
             {
                 string valor = "";
@@ -277,10 +293,6 @@ namespace ListaDNI
                 {
                     valor = "";
                 }
-
-
-
-
                 return valor;
             }
 
@@ -301,7 +313,7 @@ namespace ListaDNI
 
                 if (cbEstados.Text == "Validado")
                 {
-                    llamadaText = text + fechaHora.ToShortDateString() + " BBOO: " + nombreBBOO + " " + cbEstados.SelectedItem + "\nCartero:\n";
+                    llamadaText = text + fechaHora.ToShortDateString() + " BBOO: " + nombreBBOO + " " + cbEstados.SelectedItem + "\nCartero: " + TurnoCartero();
                     Clipboard.SetText(llamadaText);
                     limpiarCheck();
                 }
@@ -317,7 +329,7 @@ namespace ListaDNI
 
                 if (cbEstados.Text == "Validado")
                 {
-                    llamadaText = text + fechaHora.ToString("dd/MM/yy HH:mm") + " BBOO Italo: " + cbEstados.SelectedItem + "\nCartero:\n";
+                    llamadaText = text + fechaHora.ToString("dd/MM/yy HH:mm") + " BBOO Italo: " + cbEstados.SelectedItem + "\nCartero: " + TurnoCartero();
                     Clipboard.SetText(llamadaText);
                     limpiarCheck();
                 }
@@ -328,6 +340,7 @@ namespace ListaDNI
                     limpiarCheck();
                 }
             }
+            btnGenerar.Enabled = true;
 
         }
         //mostrar y ocultar botones 
@@ -337,15 +350,32 @@ namespace ListaDNI
             {
                 rbx2.Visible = true;
                 rbx3.Visible = true;
+                rbtTurnoM.Visible = false;
+                rbtTurnoT.Visible = false;
             }
             else
             {
                 rbx2.Visible = false;
                 rbx3.Visible = false;
+                rbtTurnoM.Visible = true;
+                rbtTurnoT.Visible = true;
             }
         }
 
- 
+        private void btHabilitar_Click(object sender, EventArgs e)
+        {
+            btnGenerar.Enabled = true;
+        }
+
+        private void txtLM_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            vn.soloNumeros(e);
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            vn.soloNumeros(e);
+        }
     }
 }
 

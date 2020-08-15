@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ListaDNI.exe" size="84960">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ListaDNI.exe" size="87520">
       <assemblyIdentity name="ListaDNI" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>767M4k5kkzLdOH2DOG4y2FuK89GCgJc2Vqsxrf4c0Ao=</dsig:DigestValue>
+        <dsig:DigestValue>y4knsncvtZwphZQ4xn+J2YMKyYpRp7OxCFGPSNSM08Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
