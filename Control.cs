@@ -24,11 +24,11 @@ namespace ListaDNI
         List<int> desiste = new List<int>();
         List<int> duplicado = new List<int>();
         int contadorValidados = 0;
-        int contadorContestador = 1;
-        int contadorRevision = 1;
-        int contadorDesiste = 1;
-        int contadorDuplicado = 1;
-        int contadorNoAplica = 1;
+        int contadorContestador = 0;
+        int contadorRevision = 0;
+        int contadorDesiste = 0;
+        int contadorDuplicado = 0;
+        int contadorNoAplica = 0;
         String llamadaText = "";
         DateTime fechaHora;
         string text = "";
@@ -36,6 +36,11 @@ namespace ListaDNI
         private void Form1_Load(object sender, EventArgs e)
         {
             lblHoraReloj.Text = "";
+            toolTip1.SetToolTip(txtEmailMin, "Ingrese el texto y haga doble clic para pasar el texto a minuscula y guardar en el portapapeles");
+            toolTip1.SetToolTip(btnGenerar, "1: Haga clic en generar para fijar la hora y min actual\n2: Luego presione en el boton EXPORTAR");
+            toolTip1.SetToolTip(btnExpor, "Haga clic en ESPORTAR para almacenar la informacion en el portapapeles");
+            toolTip1.SetToolTip(btnCalcular, "1: Primero ingrese los importes en el campo LM y LPL.\r\n2: Presione en el boton CALCULAR. \r\n3: Luego presione el boton EXPORTAR");
+            toolTip1.SetToolTip(btnExportar, "1: Primero utilice el boton CALCULAR \n2: Presione el boton EXPORTAR para guardar la informacion en el portapapeles.");
         }
 
         public formControl()
@@ -65,7 +70,7 @@ namespace ListaDNI
             else
             {
                 listValidados.Items.Add(txtDNI.Text);
-                lblValdCont.Text = Convert.ToString(contadorValidados=contadorValidados+1);
+                lblValdCont.Text = Convert.ToString(contadorValidados = contadorValidados + 1);
                 LimpiarDNI();
             }
 
@@ -80,7 +85,7 @@ namespace ListaDNI
             else
             {
                 lstConts.Items.Add(txtDNI.Text);
-                lblContsCont.Text = Convert.ToString(contadorContestador++);
+                lblContsCont.Text = Convert.ToString(contadorContestador = contadorContestador + 1);
                 LimpiarDNI();
             }
         }
@@ -94,7 +99,7 @@ namespace ListaDNI
             else
             {
                 lstRev.Items.Add(txtDNI.Text);
-                lblRevCont.Text = (contadorContestador++).ToString();
+                lblRevCont.Text = Convert.ToString(contadorRevision = contadorRevision + 1);
                 LimpiarDNI();
             }
         }
@@ -108,7 +113,7 @@ namespace ListaDNI
             else
             {
                 lstDesis.Items.Add(txtDNI.Text);
-                lblDesisCont.Text = (contadorDesiste++).ToString();
+                lblDesisCont.Text = Convert.ToString(contadorDesiste = contadorDesiste + 1);
                 LimpiarDNI();
             }
         }
@@ -122,7 +127,7 @@ namespace ListaDNI
             else
             {
                 lstDupli.Items.Add(txtDNI.Text);
-                lblDuplCont.Text = (contadorDuplicado++).ToString();
+                lblDuplCont.Text = Convert.ToString(contadorDuplicado = contadorDuplicado + 1);
                 LimpiarDNI();
             }
         }
@@ -136,7 +141,7 @@ namespace ListaDNI
             else
             {
                 lstNoApl.Items.Add(txtDNI.Text);
-                lblNoApl.Text = (contadorNoAplica++).ToString();
+                lblNoApl.Text = Convert.ToString(contadorNoAplica = contadorNoAplica + 1);
                 LimpiarDNI();
             }
         }
@@ -162,7 +167,7 @@ namespace ListaDNI
             {//este contador funciona bien. 
                 int indice = listValidados.SelectedIndex;
                 listValidados.Items.RemoveAt(indice);
-                lblValdCont.Text = (contadorValidados=contadorValidados-1).ToString();
+                lblValdCont.Text = (contadorValidados = contadorValidados - 1).ToString();
             }
             if (lstConts.SelectedIndex != -1)
             {//no entiendo prque no funciona bien cuando pongo contadorContestador-- 
@@ -376,7 +381,16 @@ namespace ListaDNI
         {
             vn.soloNumeros(e);
         }
+
+     
+        private void txtEmailMin_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Clipboard.SetText((txtEmailMin.Text.ToLower()).Trim());
+            txtEmailMin.Text = "";
+        }
     }
 }
+
+
 
 

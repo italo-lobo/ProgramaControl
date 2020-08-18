@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formControl));
             this.btnValidado = new System.Windows.Forms.Button();
             this.txtDNI = new System.Windows.Forms.TextBox();
@@ -89,6 +90,10 @@
             this.cbNomBBOO = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblHoraReloj = new System.Windows.Forms.Label();
+            this.txtEmailMin = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -482,7 +487,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(419, 198);
+            this.button1.Location = new System.Drawing.Point(219, 676);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 28;
@@ -738,6 +743,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.btnNoApli);
             this.panel4.Controls.Add(this.btnModf);
             this.panel4.Controls.Add(this.btnEliminar);
@@ -764,13 +770,41 @@
             this.lblHoraReloj.TabIndex = 49;
             this.lblHoraReloj.Text = "label15";
             // 
+            // txtEmailMin
+            // 
+            this.txtEmailMin.Location = new System.Drawing.Point(367, 273);
+            this.txtEmailMin.Name = "txtEmailMin";
+            this.txtEmailMin.Size = new System.Drawing.Size(151, 20);
+            this.txtEmailMin.TabIndex = 50;
+            this.txtEmailMin.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txtEmailMin_MouseDoubleClick);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(365, 258);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(114, 13);
+            this.label15.TabIndex = 51;
+            this.label15.Text = "Conversor a minuscula";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(84, -3);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(146, 13);
+            this.label16.TabIndex = 22;
+            this.label16.Text = "Botones aun no programados";
+            // 
             // formControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(530, 693);
+            this.ClientSize = new System.Drawing.Size(530, 710);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.txtEmailMin);
             this.Controls.Add(this.lblHoraReloj);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -873,6 +907,10 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btHabilitar;
         private System.Windows.Forms.Label lblHoraReloj;
+        private System.Windows.Forms.TextBox txtEmailMin;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label16;
     }
 }
 
