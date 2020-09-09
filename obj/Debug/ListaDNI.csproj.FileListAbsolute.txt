@@ -32,3 +32,4 @@ D:\ITS\Programacion 1\PROGRAMA\ListaDNI\bin\Debug\ListaDNI.exe.manifest
 D:\ITS\Programacion 1\PROGRAMA\ListaDNI\bin\Debug\ListaDNI.application
 D:\ITS\Programacion 1\PROGRAMA\ListaDNI\obj\Debug\ListaDNI.exe.manifest
 D:\ITS\Programacion 1\PROGRAMA\ListaDNI\obj\Debug\ListaDNI.application
+D:\ITS\Programacion 1\PROGRAMA\ListaDNI\obj\Debug\ListaDNI.listPrecios.resources

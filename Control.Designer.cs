@@ -80,20 +80,21 @@
             this.rbx2 = new System.Windows.Forms.RadioButton();
             this.rbx3 = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbxBBOO = new System.Windows.Forms.CheckBox();
             this.btHabilitar = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.rbtTurnoT = new System.Windows.Forms.RadioButton();
             this.rbtTurnoM = new System.Windows.Forms.RadioButton();
             this.btnExpor = new System.Windows.Forms.Button();
-            this.rbtnTextBBOO = new System.Windows.Forms.RadioButton();
             this.cbNomBBOO = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
             this.lblHoraReloj = new System.Windows.Forms.Label();
             this.txtEmailMin = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label16 = new System.Windows.Forms.Label();
+            this.btnPrecios = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -121,7 +122,7 @@
             // 
             // txtDNI
             // 
-            this.txtDNI.Location = new System.Drawing.Point(249, 19);
+            this.txtDNI.Location = new System.Drawing.Point(263, 19);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(136, 20);
             this.txtDNI.TabIndex = 2;
@@ -242,9 +243,9 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblValdCont);
-            this.panel1.Location = new System.Drawing.Point(402, 12);
+            this.panel1.Location = new System.Drawing.Point(415, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(110, 180);
+            this.panel1.Size = new System.Drawing.Size(97, 180);
             this.panel1.TabIndex = 11;
             // 
             // lblNoApl
@@ -497,6 +498,7 @@
             // 
             // txtLM
             // 
+            this.txtLM.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtLM.Location = new System.Drawing.Point(34, 36);
             this.txtLM.Name = "txtLM";
             this.txtLM.Size = new System.Drawing.Size(100, 20);
@@ -505,6 +507,7 @@
             // 
             // txtLPL
             // 
+            this.txtLPL.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtLPL.Location = new System.Drawing.Point(293, 36);
             this.txtLPL.Name = "txtLPL";
             this.txtLPL.Size = new System.Drawing.Size(100, 20);
@@ -515,7 +518,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label12.Location = new System.Drawing.Point(6, 39);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(27, 15);
@@ -527,7 +530,7 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label14.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label14.Location = new System.Drawing.Point(260, 39);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(32, 15);
@@ -536,14 +539,17 @@
             // 
             // btnCalcular
             // 
+            this.btnCalcular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnCalcular.FlatAppearance.BorderSize = 4;
             this.btnCalcular.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.btnCalcular.Font = new System.Drawing.Font("A Bebedera", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalcular.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnCalcular.Location = new System.Drawing.Point(110, 5);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(75, 23);
             this.btnCalcular.TabIndex = 36;
             this.btnCalcular.Text = "CALCULAR";
-            this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.UseVisualStyleBackColor = false;
             this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
             // label13
@@ -551,7 +557,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label13.Location = new System.Drawing.Point(135, 39);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(23, 15);
@@ -560,25 +566,29 @@
             // 
             // txtLZ
             // 
-            this.txtLZ.Enabled = false;
+            this.txtLZ.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtLZ.Location = new System.Drawing.Point(159, 36);
             this.txtLZ.Name = "txtLZ";
+            this.txtLZ.ReadOnly = true;
             this.txtLZ.Size = new System.Drawing.Size(100, 20);
             this.txtLZ.TabIndex = 38;
             // 
             // btnExportar
             // 
+            this.btnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnExportar.Font = new System.Drawing.Font("A Bebedera", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportar.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnExportar.Location = new System.Drawing.Point(191, 5);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(75, 23);
             this.btnExportar.TabIndex = 40;
             this.btnExportar.Text = "EXPORTAR";
-            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.UseVisualStyleBackColor = false;
             this.btnExportar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
+            this.panel2.BackColor = System.Drawing.Color.DarkGray;
             this.panel2.Controls.Add(this.btnCalcular);
             this.panel2.Controls.Add(this.btnExportar);
             this.panel2.Controls.Add(this.txtLM);
@@ -589,7 +599,7 @@
             this.panel2.Controls.Add(this.label14);
             this.panel2.Location = new System.Drawing.Point(2, 121);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(394, 71);
+            this.panel2.Size = new System.Drawing.Size(407, 71);
             this.panel2.TabIndex = 41;
             // 
             // cbEstados
@@ -646,11 +656,11 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Gray;
+            this.panel3.Controls.Add(this.cbxBBOO);
             this.panel3.Controls.Add(this.btHabilitar);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.btnExpor);
-            this.panel3.Controls.Add(this.rbtnTextBBOO);
             this.panel3.Controls.Add(this.cbNomBBOO);
             this.panel3.Controls.Add(this.btnGenerar);
             this.panel3.Controls.Add(this.cbEstados);
@@ -658,6 +668,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(339, 87);
             this.panel3.TabIndex = 47;
+            // 
+            // cbxBBOO
+            // 
+            this.cbxBBOO.AutoSize = true;
+            this.cbxBBOO.Location = new System.Drawing.Point(134, 15);
+            this.cbxBBOO.Name = "cbxBBOO";
+            this.cbxBBOO.Size = new System.Drawing.Size(15, 14);
+            this.cbxBBOO.TabIndex = 56;
+            this.cbxBBOO.UseVisualStyleBackColor = true;
             // 
             // btHabilitar
             // 
@@ -720,15 +739,6 @@
             this.btnExpor.UseVisualStyleBackColor = true;
             this.btnExpor.Click += new System.EventHandler(this.btnExpor_Click);
             // 
-            // rbtnTextBBOO
-            // 
-            this.rbtnTextBBOO.AutoSize = true;
-            this.rbtnTextBBOO.Location = new System.Drawing.Point(134, 14);
-            this.rbtnTextBBOO.Name = "rbtnTextBBOO";
-            this.rbtnTextBBOO.Size = new System.Drawing.Size(14, 13);
-            this.rbtnTextBBOO.TabIndex = 48;
-            this.rbtnTextBBOO.UseVisualStyleBackColor = true;
-            // 
             // cbNomBBOO
             // 
             this.cbNomBBOO.FormattingEnabled = true;
@@ -756,8 +766,17 @@
             this.panel4.Controls.Add(this.btnValidado);
             this.panel4.Location = new System.Drawing.Point(2, 7);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(394, 108);
+            this.panel4.Size = new System.Drawing.Size(407, 108);
             this.panel4.TabIndex = 48;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(84, -3);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(146, 13);
+            this.label16.TabIndex = 22;
+            this.label16.Text = "Botones aun no programados";
             // 
             // lblHoraReloj
             // 
@@ -787,14 +806,15 @@
             this.label15.TabIndex = 51;
             this.label15.Text = "Conversor a minuscula";
             // 
-            // label16
+            // btnPrecios
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(84, -3);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(146, 13);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "Botones aun no programados";
+            this.btnPrecios.Location = new System.Drawing.Point(402, 219);
+            this.btnPrecios.Name = "btnPrecios";
+            this.btnPrecios.Size = new System.Drawing.Size(75, 23);
+            this.btnPrecios.TabIndex = 52;
+            this.btnPrecios.Text = "PRECIOS";
+            this.btnPrecios.UseVisualStyleBackColor = true;
+            this.btnPrecios.Click += new System.EventHandler(this.btnPrecios_Click);
             // 
             // formControl
             // 
@@ -803,6 +823,7 @@
             this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(530, 710);
+            this.Controls.Add(this.btnPrecios);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.txtEmailMin);
             this.Controls.Add(this.lblHoraReloj);
@@ -897,7 +918,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox cbNomBBOO;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.RadioButton rbtnTextBBOO;
         private System.Windows.Forms.Label lblNoApl;
         private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Button btnExpor;
@@ -911,6 +931,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnPrecios;
+        private System.Windows.Forms.CheckBox cbxBBOO;
     }
 }
 

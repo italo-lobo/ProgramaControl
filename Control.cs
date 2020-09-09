@@ -255,7 +255,7 @@ namespace ListaDNI
         {
             //esta parte del codigo me agrega encabezado siempre que el boton se encuentre selecccionado 
 
-            if (rbtnTextBBOO.Checked == true)
+            if (cbxBBOO.Checked == true)
             {
                 text = "_________________\n" + "BBOO\n";
             }
@@ -309,7 +309,10 @@ namespace ListaDNI
                 rbx2.Visible = false;
                 rbx3.Visible = false;
                 cbNomBBOO.Text = "";
-                rbtnTextBBOO.Checked = false;
+                cbxBBOO.Checked = false;
+                rbtTurnoM.Checked = false;
+                rbtTurnoT.Checked = false;
+
             }
 
             if (cbNomBBOO.Text == "Matias" || cbNomBBOO.Text == "Geo")
@@ -347,6 +350,8 @@ namespace ListaDNI
             }
             btnGenerar.Enabled = true;
 
+            rbx2.Checked = false;
+            rbx3.Checked = false;
         }
         //mostrar y ocultar botones 
         private void cbEstados_SelectedValueChanged(object sender, EventArgs e)
@@ -388,6 +393,14 @@ namespace ListaDNI
             Clipboard.SetText((txtEmailMin.Text.ToLower()).Trim());
             txtEmailMin.Text = "";
         }
+
+        private void btnPrecios_Click(object sender, EventArgs e)
+        {
+            Form formularioPrecios = new listPrecios();
+            formularioPrecios.Show();
+        }
+
+    
     }
 }
 
