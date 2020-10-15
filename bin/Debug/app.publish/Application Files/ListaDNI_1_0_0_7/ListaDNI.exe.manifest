@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="ListaDNI.exe" version="1.0.0.7" publicKeyToken="adf038e76b4fb13a" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="ListaDNI" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="ListaDNI.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Opciones del manifiesto de Control de cuentas de usuario
+          Si quiere cambiar el nivel de Control de cuentas de usuario de Windows, reemplace el
+          nodo requestedExecutionLevel por alguno de los siguientes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Si desea usar la virtualización de archivos y del Registro para la
+         compatibilidad con versiones anteriores, elimine el nodo requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ListaDNI.exe" size="2467296">
+      <assemblyIdentity name="ListaDNI" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>L4xv7XBkQZksXghwRKvzuyafGWKSQ4k8toafRwudums=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="ListaDNI.exe.config" size="184">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>X+GtgC9o18R9u9jmAWK6iKuu0WLaXTgchdPkk1MRli4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Sin título-1.ico" size="59009">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>yhLRsvmGhXnue/9aANyC8BeZRUgi14kbqwy67shsEpM=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-BB8057R\apolo" issuerKeyHash="11b500706d1b74fcdbe0d0fed591534ed8abda7e" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>eSWMahDzZ0efyIBK+qE12SZHszGbOs1FDzVjbRExR5U=</DigestValue></Reference></SignedInfo><SignatureValue>Wi+aulNkYZdpszhpqRxty+8Dzqs39XNhR9y8cDwXuu3ya9Ti+Xk/NidNYw3xXzLN3YH0ymUNKoNEMttBaPKGg9owB3OhCWy0MhYCwIGAGUHqtEG29Spim5a+3YALKlVkEaVuKMgsjENChaxE0IM78p5zwy7bTgbghSt9EkuMAjE=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>k6iZCV4pkg+SEoCGrJvvHJyaLAxel2NvBItjkXMm7P+hUG0jX1kmpe5rjHr9RJaCigm04wuKIQA1Y7ALsY1VOnEvGB0xPQHNkGQgKHCcXIqO01uyVIC/rHQBmFt3UBQ2OinbrzIoKzrQhcEoL4P64jU6Glu6wV7LdtQ/I2yT29k=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="954731116d63350f45cd3a9b31b34726d935a1fa4a80c89f4767f3106a8c2579" Description="" Url=""><as:assemblyIdentity name="ListaDNI.exe" version="1.0.0.7" publicKeyToken="adf038e76b4fb13a" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-BB8057R\apolo</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>BjVJWII3UY+ee/MwOZ2aq2dmPgMhwy4b5hHMDrDVzkQ=</DigestValue></Reference></SignedInfo><SignatureValue>YSyU5SOZOV9FTklq1vN8r+EnrVtgSXrpG7ibtHU2WHDvgyAyn4jTaDUAiocLVja0KU/CvfJVgumGGCiVn2g4XDazNyIvVpPdp2FU+E6o/MrsE9zGOqB97AT1/6R97moo1J8mCLsa3QJo2NGNYeGfYEUXJ/C1HyE6h6neALu8PMo=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>k6iZCV4pkg+SEoCGrJvvHJyaLAxel2NvBItjkXMm7P+hUG0jX1kmpe5rjHr9RJaCigm04wuKIQA1Y7ALsY1VOnEvGB0xPQHNkGQgKHCcXIqO01uyVIC/rHQBmFt3UBQ2OinbrzIoKzrQhcEoL4P64jU6Glu6wV7LdtQ/I2yT29k=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQKX8BXYog04xAAk1ztcXkIDANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAEIAQgA4ADAANQA3AFIAXABhAHAAbwBsAG8wHhcNMjAwODEyMTUzMTU5WhcNMjEwODEyMjEzMTU5WjA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAEIAQgA4ADAANQA3AFIAXABhAHAAbwBsAG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAJOomQleKZIPkhKAhqyb7xycmiwMXpdjbwSLY5FzJuz/oVBtI19ZJqXua4x6/USWgooJtOMLiiEANWOwC7GNVTpxLxgdMT0BzZBkIChwnFyKjtNbslSAv6x0AZhbd1AUNjop268yKCs60IXBKC+D+uI1OhpbusFey3bUPyNsk9vZAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAkOYVsazHbDKWPKL8Oydv3v5agjBhuekxtvjv2miDPs4DVlyEmqf58qzJDghTGtZ5V1nuuOpuxN4gEwwWksRoyRA3SuxBDpiFNSyvnnGGJ+kEqKVsgkbS5GPOdEZ2mguO/Bjri29LlSzCdMJ1pTvyPDOtx7ZU42UKhPIEYhgEQUs=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
