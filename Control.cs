@@ -9,6 +9,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;// se coloca este para poder usar la barra de progreso.
 
 namespace ListaDNI
 {
@@ -42,13 +43,11 @@ namespace ListaDNI
             toolTip1.SetToolTip(btnCalcular, "1: Primero ingrese los importes en el campo LM y LPL.\r\n2: Presione en el boton CALCULAR. \r\n3: Luego presione el boton EXPORTAR");
             toolTip1.SetToolTip(btnExportar, "1: Primero utilice el boton CALCULAR \n2: Presione el boton EXPORTAR para guardar la informacion en el portapapeles.");
         }
-
         public formControl()
         {
             InitializeComponent();
 
         }
-
         //PROGRAMACION DE BOTONES PARA AGREGAR CONTENIDO (VALIDADO Y CONTESTADOR)
         void LimpiarDNI()
         {
@@ -75,7 +74,6 @@ namespace ListaDNI
             }
 
         }
-
         private void btnContestador_Click(object sender, EventArgs e)
         {
             if (txtDNI.Text == "")
@@ -89,7 +87,6 @@ namespace ListaDNI
                 LimpiarDNI();
             }
         }
-
         private void btnRevision_Click(object sender, EventArgs e)
         {
             if (txtDNI.Text == "")
@@ -103,7 +100,6 @@ namespace ListaDNI
                 LimpiarDNI();
             }
         }
-
         private void btnDesiste_Click(object sender, EventArgs e)
         {
             if (txtDNI.Text == "")
@@ -117,7 +113,6 @@ namespace ListaDNI
                 LimpiarDNI();
             }
         }
-
         private void btnDupli_Click(object sender, EventArgs e)
         {
             if (txtDNI.Text == "")
@@ -131,7 +126,6 @@ namespace ListaDNI
                 LimpiarDNI();
             }
         }
-
         private void btnNoApli_Click(object sender, EventArgs e)
         {
             if (txtDNI.Text == "")
@@ -145,10 +139,6 @@ namespace ListaDNI
                 LimpiarDNI();
             }
         }
-
-
-
-
         //PROGRAMACION DE BOTONES CON FUNCIONES COPIAR/ELIMINAR/MODIFICAR
         private void btnCopiar_Click(object sender, EventArgs e)
         {
@@ -159,7 +149,6 @@ namespace ListaDNI
             //Clipboard.SetText(lblValiList.Text + "\n" + lblContestList.Text + "\n" );
 
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
@@ -198,7 +187,6 @@ namespace ListaDNI
                 txtDNI.Focus();
             }
         }
-
         private void btnCalcular_Click(object sender, EventArgs e)
         {
 
@@ -227,13 +215,11 @@ namespace ListaDNI
 
 
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
 
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Clipboard.SetText("LM:$" + txtLM.Text + " LZ:$" + txtLZ.Text + " LPL:$" + txtLPL.Text);
@@ -242,15 +228,12 @@ namespace ListaDNI
             txtLPL.Text = "";
 
         }
-
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             fechaHora = DateTime.Now;
             lblHoraReloj.Text = fechaHora.ToString();
             btnGenerar.Enabled = false;
         }
-
-
         private void btnExpor_Click(object sender, EventArgs e)
         {
             //esta parte del codigo me agrega encabezado siempre que el boton se encuentre selecccionado 
@@ -371,36 +354,49 @@ namespace ListaDNI
                 rbtTurnoT.Visible = true;
             }
         }
-
         private void btHabilitar_Click(object sender, EventArgs e)
         {
             btnGenerar.Enabled = true;
         }
-
         private void txtLM_KeyPress(object sender, KeyPressEventArgs e)
         {
             vn.soloNumeros(e);
         }
-
         private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
         {
             vn.soloNumeros(e);
         }
-
-     
         private void txtEmailMin_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Clipboard.SetText((txtEmailMin.Text.ToLower()).Trim());
             txtEmailMin.Text = "";
         }
-
         private void btnPrecios_Click(object sender, EventArgs e)
         {
             Form formularioPrecios = new listPrecios();
             formularioPrecios.Show();
+
+        }
+        private void iconizarApp_Click(object sender, EventArgs e)
+        {//LA MINIMIZAR EL FORMULARIO SE OCULTA EN LA BARRA DE NOTIFICACIONES
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.Show();
+            }
+        }
+        private void formControl_Resize(object sender, EventArgs e)
+        {//AL HACER CLICK EN EL ICONO DE NOTIFICACION MUESTRA EL FORMULARIO 
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                iconizarApp.Visible = true;
+                iconizarApp.Icon = this.Icon;
+            }
+
+
         }
 
-    
     }
 }
 

@@ -23,6 +23,14 @@ namespace ListaDNI
             this.Close();
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {//CREACION DE UNA VENTANA SPLASH 
+            //(la ventana muestra una barra de progreso y se cierra automaticamente al terminar el tiempo
+            //incrementa la barra de progreso 
+            progressBar1.Increment(1);
+
+        }
+
         private void listPrecios_MouseMove(object sender, MouseEventArgs e)
         {
             //CODIGO QUE PERMITE MOVER LAS VENTANAS QUE NO TIENEN BORDE 
