@@ -63,3 +63,18 @@ P:\RepositorioGitHub\ProgramaControl\obj\Debug\ListaDNI.exe.manifest
 P:\RepositorioGitHub\ProgramaControl\obj\Debug\ListaDNI.application
 P:\RepositorioGitHub\ProgramaControl\obj\Debug\ListaDNI.exe
 P:\RepositorioGitHub\ProgramaControl\obj\Debug\ListaDNI.pdb
+P:\RepositorioGitHub\ProgramaControl - clases\bin\Debug\ListaDNI.exe.config
+P:\RepositorioGitHub\ProgramaControl - clases\bin\Debug\ListaDNI.exe.manifest
+P:\RepositorioGitHub\ProgramaControl - clases\bin\Debug\ListaDNI.application
+P:\RepositorioGitHub\ProgramaControl - clases\bin\Debug\ListaDNI.exe
+P:\RepositorioGitHub\ProgramaControl - clases\bin\Debug\ListaDNI.pdb
+P:\RepositorioGitHub\ProgramaControl - clases\obj\Debug\ListaDNI.csprojAssemblyReference.cache
+P:\RepositorioGitHub\ProgramaControl - clases\obj\Debug\ListaDNI.formControl.resources
+P:\RepositorioGitHub\ProgramaControl - clases\obj\Debug\ListaDNI.listPrecios.resources
+P:\RepositorioGitHub\ProgramaControl - clases\obj\Debug\ListaDNI.Properties.Resources.resources
+P:\RepositorioGitHub\ProgramaControl - clases\obj\Debug\ListaDNI.csproj.GenerateResource.cache
+P:\RepositorioGitHub\ProgramaControl - clases\obj\Debug\ListaDNI.csproj.CoreCompileInputs.cache
+P:\RepositorioGitHub\ProgramaControl - clases\obj\Debug\ListaDNI.exe.manifest
+P:\RepositorioGitHub\ProgramaControl - clases\obj\Debug\ListaDNI.application
+P:\RepositorioGitHub\ProgramaControl - clases\obj\Debug\ListaDNI.exe
+P:\RepositorioGitHub\ProgramaControl - clases\obj\Debug\ListaDNI.pdb

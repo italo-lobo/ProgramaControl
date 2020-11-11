@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <controlDiario />
+  <controlDiario>
+    <Fecha>04/11/2020</Fecha>
+    <Validado>455435</Validado>
+  </controlDiario>
+  <controlDiario>
+    <Fecha>04/11/2020</Fecha>
+    <Revision>433</Revision>
+  </controlDiario>
+  <controlDiario>
+    <Fecha>04/11/2020</Fecha>
+    <Validado>43434</Validado>
+  </controlDiario>
+  <controlDiario>
+    <Fecha>06/11/2020</Fecha>
+    <Validado>434</Validado>
+  </controlDiario>
+  <controlDiario>
+    <Fecha>06/11/2020</Fecha>
+    <Revision>32</Revision>
+  </controlDiario>
+  <controlDiario>
+    <Fecha>10/11/2020</Fecha>
+    <Revision>3131656</Revision>
+  </controlDiario>
+  <controlDiario>
+    <Fecha>10/11/2020</Fecha>
+    <Buzon>1212</Buzon>
+  </controlDiario>
+  <controlDiario>
+    <Fecha>10/11/2020</Fecha>
+    <Validado>3423</Validado>
+  </controlDiario>
+  <controlDiario>
+    <Fecha>10/11/2020</Fecha>
+    <Negativos>5345353</Negativos>
+  </controlDiario>
+  <controlDiario>
+    <Fecha>10/11/2020</Fecha>
+    <Buzon>32323</Buzon>
+  </controlDiario>
+  <controlDiario>
+    <Fecha>10/11/2020</Fecha>
+    <Buzon>232</Buzon>
+  </controlDiario>
+</DocumentElement>

@@ -1,0 +1,16 @@
+_________________
+clase Venta 
+
+tabla ventas
+fecha    hora    bboo     estado      cartero
+20/10/20 10:59  Italo:    Validado     Mañana
+20/10/20 10:59  Italo:    Validado     Mañana
+20/10/20 10:59  Italo:    Validado     Mañana
+
+clases limites
+
+metodo calcular ()
+metodo MotastarLZ()
+{Return lz}
+public prop lm, lpl 
+private  lz

@@ -9,46 +9,144 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Threading;// se coloca este para poder usar la barra de progreso.
+
+using System.Runtime.CompilerServices;
 
 namespace ListaDNI
 {
 
 
     public partial class formControl : Form
-    {//instanciacion de la clase validacion de solo numeros 
-        ValidarNumeros vn = new ValidarNumeros();
-
-        List<int> validados = new List<int>();
-        List<int> siEnRevision = new List<int>();
-        List<int> contestador = new List<int>();
-        List<int> desiste = new List<int>();
-        List<int> duplicado = new List<int>();
-        int contadorValidados = 0;
-        int contadorContestador = 0;
-        int contadorRevision = 0;
-        int contadorDesiste = 0;
-        int contadorDuplicado = 0;
-        int contadorNoAplica = 0;
-        String llamadaText = "";
-        DateTime fechaHora;
-        string text = "";
+    {
+        #region DECLARACIONES
+        Validaciones classValid = new Validaciones();
+        Limites classlim = new Limites();
+        DataTable tabla = new DataTable();
+        DataTable BBOOs = new DataTable();
+        ValidarNumeros vn = new ValidarNumeros();//instanciacion de la clase validacion de solo numeros 
+        #endregion
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            #region CREACION DE COLUMNA Y TABLA POR DEFECTO datagridveaw
+            try
+            {
+                tabla.TableName = "controlDiario";
+                tabla.Columns.Add("Fecha");
+                tabla.Columns.Add("Validado");
+                tabla.Columns.Add("Buzon");
+                tabla.Columns.Add("Revision");
+                tabla.Columns.Add("Negativos");
+                tabla.Columns.Add("Recuperados");
+                tabla.Columns.Add("DNI");
+                tabla.Columns.Add("Onboarding");
+            }
+            catch (Exception)
+            {
+                tabla.WriteXml(@"Reporte Actividades Diarias");
+            }
+            #endregion
+
+            #region CREACION DE COLUMNA Y TABLA POR DEFECTO BBOOs
+            try
+            {
+                BBOOs.TableName = "BBOOs";
+                BBOOs.Columns.Add("NombreBBOO");
+
+            }
+            catch (Exception)
+            {
+                BBOOs.WriteXml(@"Nombre de BBOOs");
+            }
+            #endregion
+            #region LECTURA Y ASIGNACION
+            tabla.ReadXml(@"Reporte Actividades Diarias");
+            BBOOs.ReadXml(@"Nombre de BBOOs");
+            dataGridView1.DataSource = tabla;
+            cbNomBBOO.DataSource = BBOOs;
+            cbNomBBOO.DisplayMember = "NombreBBOO";
+            #endregion
+
+            #region REFERENCIAS TOOL TIP
             lblHoraReloj.Text = "";
             toolTip1.SetToolTip(txtEmailMin, "Ingrese el texto y haga doble clic para pasar el texto a minuscula y guardar en el portapapeles");
             toolTip1.SetToolTip(btnGenerar, "1: Haga clic en generar para fijar la hora y min actual\n2: Luego presione en el boton EXPORTAR");
             toolTip1.SetToolTip(btnExpor, "Haga clic en ESPORTAR para almacenar la informacion en el portapapeles");
             toolTip1.SetToolTip(btnCalcular, "1: Primero ingrese los importes en el campo LM y LPL.\r\n2: Presione en el boton CALCULAR. \r\n3: Luego presione el boton EXPORTAR");
             toolTip1.SetToolTip(btnExportar, "1: Primero utilice el boton CALCULAR \n2: Presione el boton EXPORTAR para guardar la informacion en el portapapeles.");
+            #endregion
         }
         public formControl()
         {
             InitializeComponent();
+            //finalizamos el hilo 
+        }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {//boton para cargar los datos en el datagrid
+            //CONTROL DE ERROR FECHA INICIAL 
+            FechaGenerar();
+            tabla.Rows.Add();
+            tabla.Rows[tabla.Rows.Count - 1][cbxTipif.SelectedIndex + 1] = txtDNI.Text;
+            tabla.Rows[tabla.Rows.Count - 1][0] = classValid.fechaHora.ToString("d");
+            
+            //foreach (tipo  variable in coleccion)
+            foreach (System.Data.DataRow item in tabla.Rows)
+            {
+                //int lugar = 0;
+                //if (tabla.Rows == null)
+                //{
+                //    MessageBox.Show("ingresó");
+                //    //lugar = dataGridView1.CurrentRow.Index;
+                //    //tabla.Rows[lugar][cbxTipif.SelectedIndex + 1] = txtDNI.Text;
+                //    break;
+                //}
+                //else
+                //    MessageBox.Show(item["Validado"].ToString());
+            }
+            //TODO COMO CONTINUAR?
+
+            //***************posible solucion 2*********************
+
+            //private bool ValidateGrid(DataGridVieW dgvListas)
+            //{
+            //    for (int i = 0; i < dgvListas.RowCount - 1; i++)
+            //    {
+            //        for (int j = 0; j < dgvListas.ColumnCount; j++)
+            //        {
+            //            if (string.IsNullOrEmpty(dgvListas.Rows[i].Cells[j].Value))
+            //            {
+            //                return true;
+            //            }
+            //        }
+            //    }
+            //    return false;
+            //}
+
+            tabla.WriteXml(@"Reporte Actividades Diarias");
+            LimpiarDNI();
+            cbxTipif.SelectedIndex = -1;
 
         }
-        //PROGRAMACION DE BOTONES PARA AGREGAR CONTENIDO (VALIDADO Y CONTESTADOR)
+
+        #region METODOS
+        void limpiarCheck()
+        {
+            cbEstados.SelectedIndex = 0;
+            rbx2.Checked = false;
+            rbx3.Checked = false;
+            rbx2.Visible = false;
+            rbx3.Visible = false;
+            cbNomBBOO.Text = "";
+            cbxBBOO.Checked = false;
+            rbtTurnoM.Checked = false;
+            rbtTurnoT.Checked = false;
+
+            btnGenerar.Enabled = true;
+            rbx2.Checked = false;
+            rbx3.Checked = false;
+            btnGenerar.BackColor = System.Drawing.ColorTranslator.FromHtml("#f5f5f5");
+        }
         void LimpiarDNI()
         {
             txtDNI.Text = "";
@@ -59,287 +157,68 @@ namespace ListaDNI
             MessageBox.Show("Ingrese un DNI antes");
             txtDNI.Focus();
         }
-        private void btnValidado_Click(object sender, EventArgs e)
+        void limpiarLimites()
         {
-
-            if (txtDNI.Text == "")
-            {
-                MensajeErrorDNI();
-            }
-            else
-            {
-                listValidados.Items.Add(txtDNI.Text);
-                lblValdCont.Text = Convert.ToString(contadorValidados = contadorValidados + 1);
-                LimpiarDNI();
-            }
-
-        }
-        private void btnContestador_Click(object sender, EventArgs e)
-        {
-            if (txtDNI.Text == "")
-            {
-                MensajeErrorDNI();
-            }
-            else
-            {
-                lstConts.Items.Add(txtDNI.Text);
-                lblContsCont.Text = Convert.ToString(contadorContestador = contadorContestador + 1);
-                LimpiarDNI();
-            }
-        }
-        private void btnRevision_Click(object sender, EventArgs e)
-        {
-            if (txtDNI.Text == "")
-            {
-                MensajeErrorDNI();
-            }
-            else
-            {
-                lstRev.Items.Add(txtDNI.Text);
-                lblRevCont.Text = Convert.ToString(contadorRevision = contadorRevision + 1);
-                LimpiarDNI();
-            }
-        }
-        private void btnDesiste_Click(object sender, EventArgs e)
-        {
-            if (txtDNI.Text == "")
-            {
-                MensajeErrorDNI();
-            }
-            else
-            {
-                lstDesis.Items.Add(txtDNI.Text);
-                lblDesisCont.Text = Convert.ToString(contadorDesiste = contadorDesiste + 1);
-                LimpiarDNI();
-            }
-        }
-        private void btnDupli_Click(object sender, EventArgs e)
-        {
-            if (txtDNI.Text == "")
-            {
-                MensajeErrorDNI();
-            }
-            else
-            {
-                lstDupli.Items.Add(txtDNI.Text);
-                lblDuplCont.Text = Convert.ToString(contadorDuplicado = contadorDuplicado + 1);
-                LimpiarDNI();
-            }
-        }
-        private void btnNoApli_Click(object sender, EventArgs e)
-        {
-            if (txtDNI.Text == "")
-            {
-                MensajeErrorDNI();
-            }
-            else
-            {
-                lstNoApl.Items.Add(txtDNI.Text);
-                lblNoApl.Text = Convert.ToString(contadorNoAplica = contadorNoAplica + 1);
-                LimpiarDNI();
-            }
-        }
-        //PROGRAMACION DE BOTONES CON FUNCIONES COPIAR/ELIMINAR/MODIFICAR
-        private void btnCopiar_Click(object sender, EventArgs e)
-        {
-            //ESTA PARTE DEL CODIGO COPIA AL PORTAPAPELES LA INFO QUE TENGO EN TODO EL PROGRAMA
-            //LA FINALIDAD ES PASARLO A UN EXCEL O IMPRIMIR UN REPORTE - FALTA TERMINAR ESTO 
-            //string totales = $("total de cargas: Validados {0} Contestador {1} Si en revision {2} Desiste {3} Duplicadas {4}"; lblValdCont.Text,lblContsCont.Text);
-            //lblContsCont.Text, lblRevCont.Text, lblDesisCont.Text, lblDuplCont.Text;
-            //Clipboard.SetText(lblValiList.Text + "\n" + lblContestList.Text + "\n" );
-
-        }
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-            if (listValidados.SelectedIndex != -1)
-            {//este contador funciona bien. 
-                int indice = listValidados.SelectedIndex;
-                listValidados.Items.RemoveAt(indice);
-                lblValdCont.Text = (contadorValidados = contadorValidados - 1).ToString();
-            }
-            if (lstConts.SelectedIndex != -1)
-            {//no entiendo prque no funciona bien cuando pongo contadorContestador-- 
-                int indice = lstConts.SelectedIndex;
-                lstConts.Items.RemoveAt(indice);
-                lblValdCont.Text = (contadorContestador--).ToString();
-            }
-        }
-        private void btnModf_Click(object sender, EventArgs e)
-        {
-            //ESTA PARTE DEL CODIGO SERIA PARA QUE ME MODIFIQUE LO QUE NECESITO SEGUN EL LISTBOX QUE TENGA SELECCIONADO 
-            //Podria simplificarlo con un metodo y un switch? 
-            //SOLO LO PROGRAME PARA VALIDADOS Y CONTESTADOR
-            if (listValidados.SelectedIndex > -1)
-            {
-                int indice = listValidados.SelectedIndex;
-                listValidados.Items.RemoveAt(indice);
-                listValidados.Items.Insert(indice, txtDNI.Text);
-                txtDNI.Text = "";
-                txtDNI.Focus();
-            }
-            if (lstConts.SelectedIndex > -1)
-            {
-                int indice = lstConts.SelectedIndex;
-                lstConts.Items.RemoveAt(indice);
-                lstConts.Items.Insert(indice, txtDNI.Text);
-                txtDNI.Text = "";
-                txtDNI.Focus();
-            }
-        }
-        private void btnCalcular_Click(object sender, EventArgs e)
-        {
-
-
-
-            if (txtLM.Text == "" && txtLPL.Text == "")
-            {
-                MessageBox.Show("Antes debe ingresar el importe");
-            }
-            else
-            if (txtLM.Text.Length >= 6 && txtLPL.Text.Length >= 6)
-            {
-                int tamañoLM = txtLM.Text.Length - 5;
-                int tamañoLPL = txtLPL.Text.Length - 5;
-                txtLPL.Text = txtLPL.Text.Substring(0, tamañoLPL);
-                txtLM.Text = txtLM.Text.Substring(0, tamañoLM);
-                txtLZ.Text = Convert.ToString(Convert.ToInt32(txtLM.Text) * 3);
-            }
-            else
-            {
-                MessageBox.Show("Recuerde que debe contener mas de 5 caracteres para poder ser convertidos");
-                txtLM.Focus();
-            }
-
-
-
-
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-        }
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText("LM:$" + txtLM.Text + " LZ:$" + txtLZ.Text + " LPL:$" + txtLPL.Text);
             txtLM.Text = "";
             txtLZ.Text = "";
             txtLPL.Text = "";
+        }
+        void FechaGenerar()
+        {
+            if (classValid.fechaHora.ToString("dd/MM/yyyy") == "01/01/0001")
+            {
+                classValid.fechaHora = DateTime.Now;
+            }
 
+        }
+        #endregion
+
+        #region BOTONES PRINCIPALES
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            classlim.CalcularLimites(txtLM.Text, txtLZ.Text, txtLPL.Text);
+
+            txtLM.Text = classlim.LM;
+            txtLZ.Text = classlim.LZ;
+            txtLPL.Text = classlim.LPL;
+        }
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            classlim.LimitesExp();
+            limpiarLimites();
         }
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            fechaHora = DateTime.Now;
-            lblHoraReloj.Text = fechaHora.ToString();
+            classValid.fechaHora = DateTime.Now;
+            lblHoraReloj.Text = classValid.fechaHora.ToString();
             btnGenerar.Enabled = false;
+            btnGenerar.BackColor = System.Drawing.ColorTranslator.FromHtml("#4A5770");
         }
         private void btnExpor_Click(object sender, EventArgs e)
         {
-            //esta parte del codigo me agrega encabezado siempre que el boton se encuentre selecccionado 
 
-            if (cbxBBOO.Checked == true)
-            {
-                text = "_________________\n" + "BBOO\n";
-            }
-            else
-            {
-                text = "";
-            }
-            string TurnoCartero()
-            {
-                string turno = "";
-                if (rbtTurnoM.Checked)
-                {
-                    turno = "Mañana";
+            FechaGenerar(); //control de error fecha 
+            classValid.Encabezado(cbxBBOO.Checked);
+            classValid.Intentos(rbx2.Checked, rbx3.Checked); //se llamaba chekbox()
+            classValid.CarteroTurno(rbtTurnoM.Checked, rbtTurnoT.Checked);
+            classValid.BBOOCheck(cbNomBBOO.Text, cbEstados.SelectedItem, cbNomBBOO.SelectedIndex);
+            limpiarCheck();
 
-                }
-                else
-
-                    if (rbtTurnoT.Checked)
-                { turno = "Tarde"; }
-                else
-                {
-                    turno = "";
-                }
-                return turno;
-            }
-
-            string chekbox()
-            {
-                string valor = "";
-                if (rbx2.Checked)
-                {
-                    valor = "x2";
-
-                }
-                else
-
-                    if (rbx3.Checked)
-                { valor = "x3"; }
-                else
-                {
-                    valor = "";
-                }
-                return valor;
-            }
-
-            void limpiarCheck()
-            {
-                cbEstados.SelectedIndex = 0;
-                rbx2.Checked = false;
-                rbx3.Checked = false;
-                rbx2.Visible = false;
-                rbx3.Visible = false;
-                cbNomBBOO.Text = "";
-                cbxBBOO.Checked = false;
-                rbtTurnoM.Checked = false;
-                rbtTurnoT.Checked = false;
-
-            }
-
-            if (cbNomBBOO.Text == "Matias" || cbNomBBOO.Text == "Geo")
-            {
-                string nombreBBOO = cbNomBBOO.Text;
-
-                if (cbEstados.Text == "Validado")
-                {
-                    llamadaText = text + fechaHora.ToShortDateString() + " BBOO: " + nombreBBOO + " " + cbEstados.SelectedItem + "\nCartero: " + TurnoCartero();
-                    Clipboard.SetText(llamadaText);
-                    limpiarCheck();
-                }
-                else
-                {
-                    llamadaText = text + fechaHora.ToShortDateString() + " BBOO: " + nombreBBOO + " " + cbEstados.SelectedItem + " " + chekbox() + "\n";
-                    Clipboard.SetText(llamadaText);
-                    limpiarCheck();
-                }
-            }
-            else
-            {
-
-                if (cbEstados.Text == "Validado")
-                {
-                    llamadaText = text + fechaHora.ToString("dd/MM/yy HH:mm") + " BBOO Italo: " + cbEstados.SelectedItem + "\nCartero: " + TurnoCartero();
-                    Clipboard.SetText(llamadaText);
-                    limpiarCheck();
-                }
-                else
-                {
-                    llamadaText = text + fechaHora.ToString("dd/MM/yy HH:mm") + " BBOO Italo: " + cbEstados.SelectedItem + " " + chekbox() + "\n";
-                    Clipboard.SetText(llamadaText);
-                    limpiarCheck();
-                }
-            }
-            btnGenerar.Enabled = true;
-
-            rbx2.Checked = false;
-            rbx3.Checked = false;
         }
-        //mostrar y ocultar botones 
+        #endregion
+
+        #region MOSTRAR Y OCULTAR CHECK 
         private void cbEstados_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbEstados.Text != "Validado")
+            if (cbEstados.Text == "")
+            {
+                rbx3.Visible = false;
+                rbx2.Visible = false;
+                rbtTurnoM.Visible = false;
+                rbtTurnoT.Visible = false;
+
+            }
+            else if (cbEstados.Text != "Validado")
             {
                 rbx2.Visible = true;
                 rbx3.Visible = true;
@@ -354,10 +233,14 @@ namespace ListaDNI
                 rbtTurnoT.Visible = true;
             }
         }
-        private void btHabilitar_Click(object sender, EventArgs e)
-        {
+        private void botonGenerarToolStripMenuItem_Click(object sender, EventArgs e)
+        {//muestra el menu para habilitar el cambio de hora
             btnGenerar.Enabled = true;
+            btnGenerar.BackColor = System.Drawing.ColorTranslator.FromHtml("#E1E1E1");
         }
+        #endregion
+
+        #region RESTRICCIONES
         private void txtLM_KeyPress(object sender, KeyPressEventArgs e)
         {
             vn.soloNumeros(e);
@@ -366,8 +249,11 @@ namespace ListaDNI
         {
             vn.soloNumeros(e);
         }
+        #endregion
+
+        #region ACCIONES
         private void txtEmailMin_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
+        {//conversor de texto a minuscula
             Clipboard.SetText((txtEmailMin.Text.ToLower()).Trim());
             txtEmailMin.Text = "";
         }
@@ -376,7 +262,9 @@ namespace ListaDNI
             Form formularioPrecios = new listPrecios();
             formularioPrecios.Show();
 
+
         }
+        #region MINIMIZA EL PROGRAMA EN LA BANDEJA DE NOTIFICACIONES
         private void iconizarApp_Click(object sender, EventArgs e)
         {//LA MINIMIZAR EL FORMULARIO SE OCULTA EN LA BARRA DE NOTIFICACIONES
             if (this.WindowState == FormWindowState.Minimized)
@@ -396,6 +284,20 @@ namespace ListaDNI
 
 
         }
+
+
+        #endregion
+
+        #endregion
+
+        private void btnAceptarBBOONom_Click(object sender, EventArgs e)
+        {
+
+            BBOOs.Rows.Add();
+            BBOOs.Rows[BBOOs.Rows.Count - 1][0] = txtNombreBBOOnew.Text;
+            BBOOs.WriteXml(@"Nombre de BBOOs");
+        }
+
 
     }
 }
